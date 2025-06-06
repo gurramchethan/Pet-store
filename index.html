@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawws</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--primary-blue:#4A90E2;--secondary-yellow:#FFD166;--light-gray:#F8F9FA;--dark-text:#343A40;--white:#FFFFFF;}
+        section{scroll-margin-top:80px;}
+        body{font-family:'Poppins',sans-serif;color:var(--dark-text);overflow-x:hidden;padding-top:76px;}
+        html{scroll-behavior:smooth;}
+        .navbar{background-color:var(--white);box-shadow:0 2px 10px rgba(0,0,0,0.08);padding:1rem 0;}
+        .navbar-brand{font-weight:700;color:var(--primary-blue)!important;font-size:1.8rem;}
+        .nav-link{font-weight:600;color:var(--dark-text)!important;transition:color 0.3s ease-in-out;margin-left:15px;}
+        .nav-link:hover{color:var(--primary-blue)!important;}
+        .hero-section{background:linear-gradient(rgba(74,144,226,0.7),rgba(74,144,226,0.7)),url('https://images.unsplash.com/photo-1583337130416-09a25032870d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;color:var(--white);height:80vh;display:flex;align-items:center;text-align:center;position:relative;}
+        .hero-section h1{font-size:3.8rem;font-weight:700;margin-bottom:1rem;}
+        .hero-section p{font-size:1.4rem;margin-bottom:2rem;}
+        .btn-primary-custom{background-color:var(--secondary-yellow);border-color:var(--secondary-yellow);color:var(--dark-text);padding:0.8rem 2.5rem;font-size:1.1rem;font-weight:600;border-radius:50px;transition:all 0.3s ease-in-out;}
+        .btn-primary-custom:hover{background-color:#FFC03D;border-color:#FFC03D;transform:translateY(-3px);color:var(--dark-text);}
+        section{padding:80px 0;position:relative;}
+        section:nth-of-type(even){background-color:var(--light-gray);}
+        h2{font-size:2.8rem;font-weight:700;color:var(--primary-blue);margin-bottom:1rem;text-align:center;}
+        .section-subtitle{font-size:1.2rem;color:#6C757D;margin-bottom:3rem;text-align:center;}
+        #about img{border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.1);}
+        #about p{font-size:1.1rem;line-height:1.8;margin-bottom:1.5rem;}
+        .service-card{background-color:var(--white);border-radius:11px;padding:30px;box-shadow:0 8px 25px rgba(0,0,0,0.08);text-align:center;transition:transform 0.3s ease-in-out;height:100%;display:flex;flex-direction:column;justify-content:space-between;}
+        .service-card:hover{transform:translateY(-10px);}
+        .service-card h3{font-size:1.8rem;font-weight:600;color:var(--primary-blue);margin-bottom:15px;}
+        .service-card .price{font-size:2.2rem;font-weight:700;color:var(--secondary-yellow);margin-bottom:15px;}
+        .service-card ul{list-style:none;padding:0;text-align:left;flex-grow:1;}
+        .service-card ul li{margin-bottom:10px;color:#555;}
+        .service-card ul li:before{content:'✓';color:var(--primary-blue);margin-right:10px;font-weight:700;}
+        .testimonial-card{background-color:var(--white);border-radius:15px;padding:30px;box-shadow:0 8px 25px rgba(0,0,0,0.08);margin-bottom:30px;text-align:center;}
+        .testimonial-card img{width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:15px;border:3px solid var(--secondary-yellow);}
+        .testimonial-card p{font-style:italic;margin-bottom:15px;font-size:1.1rem;}
+        .testimonial-card .customer-name{font-weight:600;color:var(--primary-blue);font-size:1.2rem;}
+        #booking .form-control{border-radius:10px;padding:12px 15px;border:1px solid #CED4DA;font-size:1.1rem;}
+        #booking textarea{min-height:120px;resize:vertical;}
+        #booking .btn-primary-custom{width:100%;padding:1rem;font-size:1.3rem;}
+        .footer{background-color:var(--dark-text);color:var(--white);padding:40px 0;text-align:center;font-size:0.9rem;}
+        .footer p{margin-bottom:0;}
+        @media (max-width:992px){.hero-section h1{font-size:2.8rem;}.hero-section p{font-size:1.1rem;}h2{font-size:2.2rem;}.service-card{margin-bottom:30px;}}
+        @media (max-width:768px){body{padding-top:60px;}.navbar-brand{font-size:1.5rem;}.hero-section{height:60vh;}.hero-section h1{font-size:2.2rem;}.hero-section p{font-size:1rem;}.btn-primary-custom{padding:0.6rem 2rem;font-size:1rem;}section{padding:60px 0;}h2{font-size:1.8rem;}.section-subtitle{font-size:1rem;}#about img{margin-bottom:30px;}}
+        @media (max-width:576px){.navbar-toggler{margin-right:15px;}}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Pawws</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#booking">Book Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <h1>Give Your Pet the Pawsome Pampering They Deserve!</h1>
+                    <p>Professional and caring grooming services for dogs and cats of all breeds.</p>
+                    <a href="#booking" class="btn btn-primary-custom">Book an Appointment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <div class="container">
+            <h2 class="text-center">About Us</h2>
+            <p class="section-subtitle">Discover our passion for pets and commitment to their well-being.</p>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0"><img src="https://images.pexels.com/photos/12283472/pexels-photo-12283472.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="img-fluid" alt="Pet groomer with dog"></div>
+                <div class="col-lg-6">
+                    <p>At Pawsome Grooming, we believe that every pet deserves to look and feel their best. Our team of experienced and compassionate groomers is dedicated to providing top-notch services in a safe, stress-free, and loving environment.</p>
+                    <p>We use only high-quality, pet-friendly products to ensure your furry friend receives the best care possible. From a basic bath to a full-service spa treatment, we tailor our services to meet the unique needs of each individual pet. Your pet's happiness and health are our top priorities!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="services">
+        <div class="container">
+            <h2 class="text-center">Our Grooming Services</h2>
+            <p class="section-subtitle">Choose from our comprehensive range of services tailored for your pet's needs.</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4 mb-4 d-flex">
+                    <div class="service-card w-100">
+                        <div><h3>Basic Bath & Brush</h3><div class="price">$45 - $85</div><ul><li>✓ Thorough shampoo & conditioning</li><li>✓ Blow dry</li><li>✓ Full brush out</li><li>✓ Ear cleaning</li><li>✓ Nail trim</li></ul></div>
+                        <a href="#booking" class="btn btn-primary-custom mt-3">Book This</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 d-flex">
+                    <div class="service-card w-100">
+                        <div><h3>Full Grooming Package</h3><div class="price">$70 - $120</div><ul><li>✓ Basic Bath & Brush services</li><li>✓ Breed-specific haircut or trim</li><li>✓ Paw pad shave</li><li>✓ Sanitary trim</li><li>✓ De-shedding treatment (if needed)</li></ul></div>
+                        <a href="#booking" class="btn btn-primary-custom mt-3">Book This</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4 d-flex">
+                    <div class="service-card w-100">
+                        <div><h3>Luxury Spa Treatment</h3><div class="price">$90 - $150</div><ul><li>✓ Full Grooming Package services</li><li>✓ Deep conditioning treatment</li><li>✓ Teeth brushing</li><li>✓ Blueberry facial</li><li>✓ Special scented spritz</li></ul></div>
+                        <a href="#booking" class="btn btn-primary-custom mt-3">Book This</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="text-center">What Our Customers Say</h2>
+            <p class="section-subtitle">Hear from happy pet parents who trust us with their furry companions.</p>
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Customer Sarah M.">
+                        <p>"Pawsome Grooming is absolutely amazing! My golden retriever, Buddy, always comes back looking and smelling fantastic. The staff is so gentle and caring."</p>
+                        <div class="customer-name">- Sarah M. (Buddy's Mom)</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Customer David R.">
+                        <p>"My cat, Luna, used to dread grooming, but not anymore! The team here is incredibly patient and made her feel comfortable. Highly recommend!"</p>
+                        <div class="customer-name">- David R. (Luna's Dad)</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card">
+                        <img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?q=80&w=2852&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Customer Jessica L.">
+                        <p>"Professional, friendly, and they truly love animals. My poodle always looks show-ready after a visit to Pawsome Grooming. Best in town!"</p>
+                        <div class="customer-name">- Jessica L. (Daisy's Owner)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="booking">
+        <div class="container">
+            <h2 class="text-center">Book Your Pet's Appointment</h2>
+            <p class="section-subtitle">Fill out the form below and we'll get back to you to confirm your booking.</p>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form>
+                        <div class="mb-3"><label for="petName" class="form-label">Pet's Name</label><input type="text" class="form-control" id="petName" placeholder="Enter your pet's name" required></div>
+                        <div class="mb-3"><label for="ownerName" class="form-label">Your Name</label><input type="text" class="form-control" id="ownerName" placeholder="Your full name" required></div>
+                        <div class="mb-3"><label for="email" class="form-label">Email Address</label><input type="email" class="form-control" id="email" placeholder="name@example.com" required></div>
+                        <div class="mb-3"><label for="phone" class="form-label">Phone Number</label><input type="tel" class="form-control" id="phone" placeholder="e.g., +91 9876543210" required></div>
+                        <div class="mb-3"><label for="serviceType" class="form-label">Desired Service</label><select class="form-select" id="serviceType" required><option selected disabled value="">Select a service...</option><option>Basic Bath & Brush</option><option>Full Grooming Package</option><option>Luxury Spa Treatment</option><option>Other (specify in message)</option></select></div>
+                        <div class="mb-3"><label for="preferredDate" class="form-label">Preferred Date</label><input type="date" class="form-control" id="preferredDate" required></div>
+                        <div class="mb-3"><label for="preferredTime" class="form-label">Preferred Time</label><input type="time" class="form-control" id="preferredTime" required></div>
+                        <div class="mb-4"><label for="message" class="form-label">Additional Message (e.g., pet's breed, special needs)</label><textarea class="form-control" id="message" rows="4" placeholder="Tell us more about your pet or any specific requests."></textarea></div>
+                        <button type="submit" class="btn btn-primary-custom">Submit Booking Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Pawsome Grooming. All Rights Reserved. | Designed with <span style="color:#FFD166;">❤</span> for happy pets.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener('click',function(e){e.preventDefault();document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'});const navbarToggler=document.querySelector('.navbar-toggler');const navbarCollapse=document.getElementById('navbarNav');if(navbarToggler&&navbarCollapse.classList.contains('show')){const bsCollapse=new bootstrap.Collapse(navbarCollapse,{toggle:false});bsCollapse.hide();}});});
+    </script>
+</body>
+          </html>
+                                                                                                       
